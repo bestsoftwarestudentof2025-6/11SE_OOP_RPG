@@ -26,7 +26,19 @@ class GameLogger:
             log_to_console: Whether to print logs to the console
         """
         self.log_to_console = log_to_console
+        self.logs = []  # Store all log messages
         
+    def log(self, message: str) -> None:
+        """
+        Log a general message.
+        
+        Args:
+            message: The message to log
+        """
+        if self.log_to_console:
+            print(message)
+        # Future enhancement: could log to file, database, etc.
+
     def log_combat(self, attacker: Any, defender: Any, damage: int) -> None:
         """
         Log a combat event.
@@ -39,6 +51,24 @@ class GameLogger:
         # Get current time for the log
         timestamp = datetime.datetime.now().strftime("%H:%M:%S")
         log_message = f"[{timestamp}] COMBAT LOG: {attacker.name} attacked {defender.name} for {damage} damage"
-        if self.log_to_console:
-            print(log_message)
-        # Future enhancement: could log to file, database, etc.
+        self.log(log_message)
+
+    def log_level_up(self, character: Any) -> None:
+        """
+        Log a level up event.
+        
+        Args:
+            character: The character that leveled up
+        """
+        timestamp = datetime.datetime.now().strftime("%H:%M:%S")
+        log_message = f"[{timestamp}] LEVEL UP: {character.name} reached level {character.level}!"
+        self.log(log_message)
+
+    def get_logs(self) -> list:
+        """
+        Get all logged messages.
+        
+        Returns:
+            A list of logged messages
+        """
+        return self.logs
