@@ -4,6 +4,9 @@
 
 This project is designed as an educational tool to demonstrate Object-Oriented Programming (OOP) concepts in Python. The code is intentionally structured to be clear, readable, and easy to understand for students learning OOP principles.
 
+### Enhanced with Windsurf AI
+The project now utilizes Windsurf AI for continuous improvement and maintenance, ensuring the codebase remains up-to-date with best practices while maintaining its educational focus.
+
 ## Running the Game
 
 To run the game, simply execute:
